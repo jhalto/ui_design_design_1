@@ -34,7 +34,7 @@ class _ShowDetailsState extends State<ShowDetails> {
                      children: [
                        CircleAvatar(
                          backgroundImage: AssetImage(widget._detailsModel.logoUrl),
-
+           
                        ),
                        SizedBox(width: 10,),
                        Text(widget._detailsModel.company,style: TextStyle(fontSize: 18),)
@@ -53,14 +53,12 @@ class _ShowDetailsState extends State<ShowDetails> {
                ),
                SizedBox(height: 15),
                Text("Requirement", style: TextStyle(fontSize: 20),),
-               SingleChildScrollView(
-
+               ListView.builder(
                 scrollDirection: Axis.vertical,
-                physics:AlwaysScrollableScrollPhysics(),
-
-                 child: Column(
-                   children: List.generate(
-                       widget._detailsModel.req.length, (index) => Row(
+                 shrinkWrap: true,
+                   physics: NeverScrollableScrollPhysics(),
+                   itemCount: widget._detailsModel.req.length,
+                   itemBuilder: (context, index) => Row(
                      children: [
                        Padding(
                          padding: const EdgeInsets.only(bottom: 15),
@@ -69,11 +67,9 @@ class _ShowDetailsState extends State<ShowDetails> {
                        SizedBox(width: 10,),
                        Text(widget._detailsModel.req[index]),
                      ],
-                   ))
-                 ),
-               )
-
-
+                   ),)
+           
+           
              ],
            ),
          ),
