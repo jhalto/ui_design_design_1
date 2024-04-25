@@ -20,7 +20,7 @@ class _DetailsDemoState extends State<DetailsDemo> {
       itemCount: modelInfo.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
-          showModalBottomSheet(context: context, builder: (context,  ) => ShowDetails());
+          showModalBottomSheet(context: context, builder: (context,  ) => ShowDetails(modelInfo[index]));
         },
         child: Padding(
           padding: EdgeInsets.only(right: 20,bottom: 120,top: 20),
